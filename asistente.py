@@ -60,7 +60,7 @@ def modulo_estudiante():
         elif opcion ==2:
             print(materias)
         elif opcion ==3:
-            nota = float (input("Ingrese la nota: "))}
+            nota = float (input("Ingrese la nota: "))
             notas.append(nota)
         elif opcion ==4:
             print("notas")
