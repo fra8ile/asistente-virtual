@@ -1,3 +1,5 @@
+materias=[]
+
 def agregar_recordatorio(recordatorios):
     print("Agregar Recordatorio")
     print("0 - cancelar")
@@ -7,6 +9,12 @@ def agregar_recordatorio(recordatorios):
 
 def ver_recordatorios(recordatorios):
     print(recordatorios)
+
+def agregar_materia():
+    print('agregar materia')
+    materia= input('ingrese el nombre de la materia')
+    materias.append(materia)
+    print('materia agregada')
 
 def asistente():
     recordatorios=["Beber agua"]
