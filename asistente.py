@@ -35,20 +35,21 @@ def modulo_estudiante():
         opcion = int(input("Seleccione una opción: "))
 
         if opcion ==1:
-            print("Agregar materia")
-        if opcion ==2:
-            print("Ver materias")
-        if opcion ==3:
+            materia = input("Ingrese el nombre de la materia: ")
+            materias.append(materia)
+        elif opcion ==2:
+            print(materias)
+        elif opcion ==3:
             print("Registrar notas")
-        if opcion ==4:
+        elif opcion ==4:
             print("Ver notas")
-        if opcion ==5:
+        elif opcion ==5:
             print("Calcular promedio")
         if opcion ==6:
             print("Registrar examen")
-        if opcion ==7:
+        elif opcion ==7:
             print("Ver próximos exámenes")
-        if opcion ==8:
+        elif opcion ==8:
             print("Registrar horas de estudio")
 
 
