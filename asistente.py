@@ -1,3 +1,5 @@
+materias=[]
+
 def agregar_recordatorio(recordatorios):
     print("Agregar Recordatorio")
     print("0 - cancelar")
