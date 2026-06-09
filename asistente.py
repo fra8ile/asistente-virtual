@@ -14,7 +14,19 @@ def agregar_materia():
     print('agregar materia')
     materia= input('ingrese el nombre de la materia')
     materias.append(materia)
-    print('materia agregada')
+    print('materia agregada correctamente')
+
+def ver_materias():
+    if len(materias) == 0:
+        print('no hay materias registradas')
+    else:
+        print('las materias registradas son:')
+
+        i=0
+
+        while i < len(materias):
+            print(materias[i])
+            i= i+1
 
 def asistente():
     recordatorios=["Beber agua"]
