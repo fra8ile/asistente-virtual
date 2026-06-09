@@ -1,5 +1,3 @@
-materias=[]
-
 def agregar_recordatorio(recordatorios):
     print("Agregar Recordatorio")
     print("0 - cancelar")
@@ -33,19 +31,43 @@ def asistente():
 
 def modulo_estudiante():
 
+    materias = []
+    notas = []
+    examenes = []
+    horas_estudio = []
+
     opcion = 0
 
-    while opcion !=10:
+    while opcion !=9:
         print("\n=== MÓDULO ESTUDIANTE ===")
         print("1. Agregar Materias")
         print("2. Ver Materias")
-        print("3. Registrar Materias")
+        print("3. Registrar Notas")
         print("4. Ver Notas")
         print("5. Calcular promedio general")
         print("6. Registrar examen")
-        print("7. Ve próximos exámenes")
+        print("7. Ver próximos exámenes")
         print("8. Registrar horas de estudio")
         print("9. Volver al menú principal")
+
+        opcion = int(input("Seleccione una opción: "))
+
+        if opcion ==1:
+            print("Agregar materia")
+        if opcion ==2:
+            print("Ver materias")
+        if opcion ==3:
+            print("Registrar notas")
+        if opcion ==4:
+            print("Ver notas")
+        if opcion ==5:
+            print("Calcular promedio")
+        if opcion ==6:
+            print("Registrar examen")
+        if opcion ==7:
+            print("Ver próximos exámenes")
+        if opcion ==8:
+            print("Registrar horas de estudio")
 
 
 
@@ -59,13 +81,8 @@ def modulo_estudiante():
         print("3- Ver Recordatorios")
         print("4- Borrar Recordatorio")
         opcion= int(input("Seleccione una opcion"))
-        print("¡Hola! Soy tu asistente virtual.")
-        print("1- Agregar Recordatorio")
-        print("2- Ver Recordatorios")
-        print("3- Borrar Recordatorio")
-        opcion= int(input("Seleccione una opción: "))
         if opcion == 1:
-            print("Módulo Estudiante en desarrollo")
+            modulo_estudiante()
         elif opcion == 2:
             agregar_recordatorio(recordatorios)
         elif opcion == 3:
