@@ -47,6 +47,11 @@ def modulo_estudiante():
         print("3- Ver Recordatorios")
         print("4- Borrar Recordatorio")
         opcion= int(input("Seleccione una opcion"))
+        print("¡Hola! Soy tu asistente virtual.")
+        print("1- Agregar Recordatorio")
+        print("2- Ver Recordatorios")
+        print("3- Borrar Recordatorio")
+        opcion= int(input("Seleccione una opción: "))
         if opcion == 1:
             print("Módulo Estudiante en desarrollo")
         elif opcion == 2:
