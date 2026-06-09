@@ -46,7 +46,7 @@ def modulo_estudiante():
         print("4. Ver Notas")
         print("5. Calcular promedio general")
         print("6. Registrar examen")
-        print("7. Ver próximos exámenes")
+        print("7. Ver exámenes")
         print("8. Registrar horas de estudio")
         print("9. Volver al menú principal")
 
@@ -58,18 +58,34 @@ def modulo_estudiante():
         elif opcion ==2:
             print(materias)
         elif opcion ==3:
-            print("Registrar notas")
+            nota = float (input("Ingrese la nota: "))}
+            notas.append(nota)
         elif opcion ==4:
-            print("Ver notas")
+            print("notas")
         elif opcion ==5:
-            print("Calcular promedio")
-        if opcion ==6:
-            print("Registrar examen")
-        elif opcion ==7:
-            print("Ver próximos exámenes")
-        elif opcion ==8:
-            print("Registrar horas de estudio")
+            
+            suma = 0
 
+            for nota in notas:
+                suma += nota
+
+            promedio = suma / len(notas)
+            print("El promedio general es:", promedio)
+
+        if opcion ==6:
+            
+            examen = input("Ingrese el nombre del examen: ")
+            examenes.append(examen)
+
+        elif opcion ==7:
+
+            print("Examenes registrados: ")
+            for examen in examenes:
+                print(examen)
+
+        elif opcion ==8:
+            horas = int(input("Ingrese las horas de estudio: "))
+            horas_estudio.append(horas)
 
 
 
