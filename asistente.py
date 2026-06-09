@@ -16,11 +16,11 @@ def asistente():
     continuar=True
 
     while continuar:
-        print("Hola, soy tu asistente vitual")
+        print("¡Hola! Soy tu asistente virtual.")
         print("1- Agregar Recordatorio")
         print("2- Ver Recordatorios")
         print("3- Borrar Recordatorio")
-        opcion= int(input("Seleccione una opcion"))
+        opcion= int(input("Seleccione una opción: "))
         if opcion == 1:
             agregar_recordatorio(recordatorios)
         elif opcion == 2:
