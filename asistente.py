@@ -40,7 +40,7 @@ def modulo_estudiante():
 
     opcion = 0
 
-    while opcion !=9:
+    while opcion !=10:
         print("\n=== MÓDULO ESTUDIANTE ===")
         print("1. Agregar Materias")
         print("2. Ver Materias")
@@ -50,7 +50,8 @@ def modulo_estudiante():
         print("6. Registrar examen")
         print("7. Ver exámenes")
         print("8. Registrar horas de estudio")
-        print("9. Volver al menú principal")
+        print("9. Ver horas de estudio")
+        print("10. Volver al menú principal")
 
         opcion = int(input("Seleccione una opción: "))
 
@@ -89,7 +90,10 @@ def modulo_estudiante():
             horas = int(input("Ingrese las horas de estudio: "))
             horas_estudio.append(horas)
 
-
+        elif opcion ==9:
+            print("Horas de estudio registradas: ")
+            for horas in horas_estudio:
+                print(horas)
 
     continuar=True
 
