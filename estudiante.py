@@ -1,6 +1,8 @@
+from interfaz import pedir_input,limpiar_pantalla
+
 def agregar_materia():
     print('agregar materia')
-    materia= input('ingrese el nombre de la materia')
+    materia= pedir_input('ingrese el nombre de la materia')
     materias.append(materia)
     print('materia agregada correctamente')
 
