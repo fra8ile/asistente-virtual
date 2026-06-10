@@ -1,14 +1,9 @@
+from recordatorios import agregar_recordatorio
+
 materias=[]
 
-def agregar_recordatorio(recordatorios):
-    print("Agregar Recordatorio")
-    print("0 - cancelar")
-    recordatorio = input("-")
-    recordatorios.append(recordatorio)
-    return True
 
-def ver_recordatorios(recordatorios):
-    print(recordatorios)
+
 
 def agregar_materia():
     print('agregar materia')
@@ -95,6 +90,9 @@ def modulo_estudiante():
             for horas in horas_estudio:
                 print(horas)
 
+
+def asistente():
+
     continuar=True
 
     while continuar:
@@ -118,4 +116,4 @@ def modulo_estudiante():
     return True
 
 if __name__ == "__main__":
-    asistente()
+    modulo_estudiante()
