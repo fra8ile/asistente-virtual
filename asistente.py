@@ -1,7 +1,7 @@
 from recordatorios import agregar_recordatorio
 # from gastos import 
 from estudiante import agregar_materia,modulo_estudiante,ver_materias
-
+from gastos import agregar_gasto,modulo_gastos,total_por_categoria,total_mes,gasto_mas_alto
 
 
 
