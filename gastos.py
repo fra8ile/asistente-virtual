@@ -1,3 +1,5 @@
+from interfaz import pedir_input,limpiar_pantalla
+
 gastos = []
 
 def agregar_gasto():
@@ -59,7 +61,7 @@ def modulo_gastos():
         print("4. Gasto más alto")
         print("5. Volver al menú principal")
 
-        opcion = input("Seleccione una opción: ")
+        opcion = int(pedir_input("Seleccione una opción: "))
 
         if opcion == "1":
             agregar_gasto()
