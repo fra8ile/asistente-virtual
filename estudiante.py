@@ -8,7 +8,7 @@ def modulo_estudiante():
 
     opcion = 0
 
-    while opcion !=10:
+    while opcion !=11:
         print("\n=== MÓDULO ESTUDIANTE ===")
         print("1. Agregar Materias")
         print("2. Ver Materias")
@@ -19,7 +19,8 @@ def modulo_estudiante():
         print("7. Ver exámenes")
         print("8. Registrar horas de estudio")
         print("9. Ver horas de estudio")
-        print("10. Volver al menú principal")
+        print("10. Ver boletín académico")
+        print("11. Volver al menú principal")
 
         opcion = int(input("Seleccione una opción: "))
 
@@ -100,3 +101,27 @@ def modulo_estudiante():
             print("Horas de estudio registradas: ")
             for horas in horas_estudio:
                 print(horas)
+
+        elif opcion ==10:
+
+            print("\n=== BOLETÍN ACADÉMICO ===")
+            
+            suma = 0
+
+            for fila in materias:
+
+                materia = fila[0]
+                nota = fila[1]
+
+                if nota >= 4:
+                    estado = "Aprobado"
+                else:
+                    estado = "Reprobado"
+
+                print(materia, "- Nota:", nota, "-", estado)
+                
+                suma = suma + nota
+            
+            if len(materias) > 0:
+                promedio = suma / len(materias)
+                print("Promedio general:", promedio)
