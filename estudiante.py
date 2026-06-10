@@ -1,11 +1,8 @@
 from interfaz import pedir_input,limpiar_pantalla
 
-
-
 def modulo_estudiante():
 
     materias = []
-    notas = []
     examenes = []
     horas_estudio = []
 
@@ -28,38 +25,56 @@ def modulo_estudiante():
 
         if opcion ==1:
             materia = input("Ingrese el nombre de la materia: ")
-            materias.append(materia)
+            
+            fila = [materia, 0]
+            materias.append(fila)
+
         elif opcion ==2:
             
             if len(materias) ==0:
                 print("No hay materias registradas.")
             
             else:
-                print("Materias registradas:")
-                for materia in materias:
-                    print(materia)
+                
+                for fila in materias:
+                    print("Materia:", fila[0], "- Nota:", fila[1])
 
         elif opcion ==3:
-            nota = float (input("Ingrese la nota: "))
-            notas.append(nota)
+            
+            if len(materias) ==0:
+                print("No hay materias registradas.")
+            else:
+                print("Materias:")
+
+                for i in range(len(materias)):
+                    print(i + 1, "-", materias[i][0])
+
+                posicion = int(input("Seleccione la materia para registrar la nota: "))
+
+                nota = float(input("Ingrese la nota: "))
+
+                materias[posicion - 1][1] = nota
+                print("Nota registrada correctamente.")
+
         elif opcion ==4:
             
-            if len(notas) ==0:
-                print("No hay notas registradas.")
-            
+            if len(materias) ==0:
+                print("No hay materias registradas.")
             else:
+
                 print("Notas registradas:")
-                for nota in notas:
-                    print(nota)
+                for fila in materias:
+                    print(fila[0], ":", fila[1])
 
         elif opcion ==5:
             
             suma = 0
 
-            for nota in notas:
-                suma += nota
+            for fila in materias:
+                suma = suma + fila[1]
 
-            promedio = suma / len(notas)
+            promedio = suma / len(materias)
+
             print("El promedio general es:", promedio)
 
         if opcion ==6:
