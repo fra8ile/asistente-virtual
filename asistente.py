@@ -59,12 +59,28 @@ def modulo_estudiante():
             materia = input("Ingrese el nombre de la materia: ")
             materias.append(materia)
         elif opcion ==2:
-            print(materias)
+            
+            if len(materias) ==0:
+                print("No hay materias registradas.")
+            
+            else:
+                print("Materias registradas:")
+                for materia in materias:
+                    print(materia)
+
         elif opcion ==3:
             nota = float (input("Ingrese la nota: "))
             notas.append(nota)
         elif opcion ==4:
-            print("notas")
+            
+            if len(notas) ==0:
+                print("No hay notas registradas.")
+            
+            else:
+                print("Notas registradas:")
+                for nota in notas:
+                    print(nota)
+
         elif opcion ==5:
             
             suma = 0
@@ -82,9 +98,13 @@ def modulo_estudiante():
 
         elif opcion ==7:
 
-            print("Examenes registrados: ")
-            for examen in examenes:
-                print(examen)
+            if len(examenes) ==0:
+                print("No hay exámenes registrados.")
+
+            else:
+                print("Exámenes registrados:")
+                for examen in examenes:
+                    print(examen)
 
         elif opcion ==8:
             horas = int(input("Ingrese las horas de estudio: "))
