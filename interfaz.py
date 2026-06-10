@@ -18,7 +18,7 @@ def pedir_input(mensaje):
 def menu_inicio():
         print("\033[96m")
         print("╔══════════════════════════════════════════════╗")
-        print("║        Hola, soy tu asistente vitual         ║")
+        print("║       ¡Hola! Soy tu asistente virtual.       ║")
         print("╠══════════════════════════════════════════════╣")
         print("║              1 - Menu escolar                ║")
         print("║              2 - Recordatorios               ║")

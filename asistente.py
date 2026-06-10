@@ -1,5 +1,4 @@
-from recordatorios import agregar_recordatorio
-# from gastos import 
+from recordatorios import agregar_recordatorio, ver_recordatorios
 from estudiante import agregar_materia,modulo_estudiante,ver_materias
 from gastos import agregar_gasto,modulo_gastos,total_por_categoria,total_mes,gasto_mas_alto
 from interfaz import pedir_input,limpiar_pantalla,menu_inicio
@@ -25,10 +24,13 @@ def asistente():
             modulo_gastos()
         elif opcion == 4:
             print("Borrar Recordatorio en desarrollo")
-        else:
+        elif opcion == 6:
+            print("¡Hasta luego!")
             continuar = False
-    
-    return True
+        else:
+            print("Opción no válida. Por favor, intente nuevamente.")
+
+
 
 if __name__ == "__main__":
     asistente()
