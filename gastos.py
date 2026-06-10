@@ -4,36 +4,55 @@ def agregar_gasto():
     nombre = input("Nombre del gasto: ")
     categoria = input("Categoría (comida/transporte/ocio/otro): ")
     cantidad = float(input("Cantidad: $"))
-    gastos.append(("Nombre: " + nombre, "Categoría: " + categoria, "Cantidad: " + str(cantidad)))
+    gastos.append((nombre, categoria, cantidad))
     print("Gasto agregado exitosamente.")
 
 def total_por_categoria():
-    categorias = {}
+    categorias = []
+    nombres_cat = []
+
     for gasto in gastos:
         nombre, categoria, cantidad = gasto
-        if categoria in categorias:
-            categorias[categoria] += float(cantidad)
-        else:
-            categorias[categoria] = float(cantidad)
-    return categorias
+        encontrado = False
+        for i in range(len(nombres_cat)):
+            if nombres_cat[i] == categoria:
+                categorias[i] += cantidad
+                encontrado = True
+                break
+        if not encontrado:
+            nombres_cat.append(categoria)
+            categorias.append(cantidad)
+
+    print("\n--- Total por categoría ---")
+    for i in range(len(nombres_cat)):
+        print(nombres_cat[i] + ": $" + str(categorias[i]))
 
 def total_mes():
     total = 0
     for gasto in gastos:
         nombre, categoria, cantidad = gasto
-        total += float(cantidad)
-    return total
+        total += cantidad
+    print("\nTotal del mes: $" + str(total))
 
 def gasto_mas_alto():
-    if not gastos:
+    if len(gastos) == 0:
         print("No hay gastos registrados.")
-        return None
-    gasto_mas_alto = max(gastos, key=lambda x: float(x[2]))
-    return gasto_mas_alto
+        return
+    mayor = gastos[0]
+    for gasto in gastos:
+        nombre, categoria, cantidad = gasto
+        nombre_mayor, categoria_mayor, cantidad_mayor = mayor
+        if cantidad > cantidad_mayor:
+            mayor = gasto
+    nombre_mayor, categoria_mayor, cantidad_mayor = mayor
+    print("\nGasto más alto:")
+    print("Nombre: " + nombre_mayor)
+    print("Categoría: " + categoria_mayor)
+    print("Cantidad: $" + str(cantidad_mayor))
 
 def modulo_gastos():
-	while True:
-		print("\n=== MÓDULO GASTOS ===")
+    while True:
+        print("\n=== MÓDULO GASTOS ===")
         print("1. Agregar gasto")
         print("2. Total por categoría")
         print("3. Total del mes")
