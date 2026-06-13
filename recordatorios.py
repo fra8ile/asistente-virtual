@@ -112,3 +112,35 @@ def buscar_recordatorio():
         if contador==0:
             print('no se encontro el recordatorio con el titulo ingresado')
             
+def menu_recordatorio():
+
+    opcion=0
+
+    while opcion!=6:
+        print('\n ==MENU DE RECORDATORIOS==')
+        print('1.agregar recordatorio')
+        print('2. ver recordatorio')
+        print('3. modificar recordatorio')
+        print('4. buscar recordatorio')
+        print('5. eliminar recordatorio')
+        print('6. volver al menu principal')
+        
+        opcion=int(input('seleccionar una opcion:'))
+
+        if opcion ==1:
+            agregar_recordatorio()
+        elif opcion ==2:
+            ver_recordatorios()
+        elif opcion==3:
+            modificar_recordatorio()
+        elif opcion==4:
+            buscar_recordatorio()
+        elif opcion==5:
+            eliminar_recordatorio()
+        
+        elif opcion ==6:
+            print('volviendo al menu principal...')
+        else:
+            print('opcion invalida, intentelo nuevamnete')
+
+
