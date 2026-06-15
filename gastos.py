@@ -53,25 +53,26 @@ def gasto_mas_alto():
     print("Cantidad: $" + str(cantidad_mayor))
 
 def modulo_gastos():
-    while True:
+    continuar=True
+    while continuar:
         print("\n=== MÓDULO GASTOS ===")
         print("1. Agregar gasto")
         print("2. Total por categoría")
         print("3. Total del mes")
         print("4. Gasto más alto")
-        print("5. Volver al menú principal")
+        print("0. Volver al menú principal")
 
         opcion = int(pedir_input("Seleccione una opción: "))
 
-        if opcion == "1":
+        if opcion == 1:
             agregar_gasto()
-        elif opcion == "2":
+        elif opcion == 2:
             total_por_categoria()
-        elif opcion == "3":
+        elif opcion == 3:
             total_mes()
-        elif opcion == "4":
+        elif opcion == 4:
             gasto_mas_alto()
-        elif opcion == "5":
-            break
+        elif opcion == 0:
+            continuar=False
         else:
             print("Opción no válida. Por favor, intente nuevamente.")

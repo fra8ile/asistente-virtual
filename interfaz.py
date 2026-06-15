@@ -27,3 +27,21 @@ def menu_inicio():
         print("║              0 - Regresar                    ║")
         print("╚══════════════════════════════════════════════╝")
         print("\033[0m")
+
+def menu_gastos():
+        print("\033[96m")
+        print("╔══════════════════════════════════════════════╗")
+        print("║              Modulo Gastos              ║")
+        print("╠══════════════════════════════════════════════╣")
+
+        print("1. Agregar gasto")
+        print("2. Total por categoría")
+        print("3. Total del mes")
+        print("4. Gasto más alto")
+        print("0. Volver al menú principal")
+
+
+
+        print("║              0 - Regresar                    ║")
+        print("╚══════════════════════════════════════════════╝")
+        print("\033[0m")
