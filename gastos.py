@@ -1,15 +1,14 @@
-from interfaz import pedir_input,limpiar_pantalla
+from interfaz import pedir_input,limpiar_pantalla,menu_gastos
 
-gastos = []
 
-def agregar_gasto():
-    nombre = input("Nombre del gasto: ")
-    categoria = input("Categoría (comida/transporte/ocio/otro): ")
-    cantidad = float(input("Cantidad: $"))
+def agregar_gasto(gastos):
+    nombre = pedir_input("Nombre del gasto: ")
+    categoria = pedir_input("Categoría (comida/transporte/ocio/otro): ")
+    cantidad = float(pedir_input("Cantidad: $"))
     gastos.append((nombre, categoria, cantidad))
     print("Gasto agregado exitosamente.")
 
-def total_por_categoria():
+def total_por_categoria(gastos):
     categorias = []
     nombres_cat = []
 
@@ -29,14 +28,14 @@ def total_por_categoria():
     for i in range(len(nombres_cat)):
         print(nombres_cat[i] + ": $" + str(categorias[i]))
 
-def total_mes():
+def total_mes(gastos):
     total = 0
     for gasto in gastos:
         nombre, categoria, cantidad = gasto
         total += cantidad
     print("\nTotal del mes: $" + str(total))
 
-def gasto_mas_alto():
+def gasto_mas_alto(gastos):
     if len(gastos) == 0:
         print("No hay gastos registrados.")
         return
@@ -52,27 +51,22 @@ def gasto_mas_alto():
     print("Categoría: " + categoria_mayor)
     print("Cantidad: $" + str(cantidad_mayor))
 
-def modulo_gastos():
+def modulo_gastos(gastos):
     continuar=True
     while continuar:
-        print("\n=== MÓDULO GASTOS ===")
-        print("1. Agregar gasto")
-        print("2. Total por categoría")
-        print("3. Total del mes")
-        print("4. Gasto más alto")
-        print("0. Volver al menú principal")
+        limpiar_pantalla()
+        menu_gastos()
 
         opcion = int(pedir_input("Seleccione una opción: "))
 
         if opcion == 1:
-            agregar_gasto()
+            agregar_gasto(gastos)
         elif opcion == 2:
-            total_por_categoria()
+            total_por_categoria(gastos)
         elif opcion == 3:
-            total_mes()
+            total_mes(gastos)
         elif opcion == 4:
-            gasto_mas_alto()
-        elif opcion == 0:
-            continuar=False
+            gasto_mas_alto(gastos)
         else:
-            print("Opción no válida. Por favor, intente nuevamente.")
+            print('volviendo al menu principal...')
+            continuar=False
