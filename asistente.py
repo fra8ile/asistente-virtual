@@ -1,5 +1,5 @@
-from recordatorios import agregar_recordatorio, ver_recordatorios
-from estudiante import modulo_estudiante
+from recordatorios import menu_recordatorio
+from estudiante import agregar_materia,modulo_estudiante,ver_materias
 from gastos import agregar_gasto,modulo_gastos,total_por_categoria,total_mes,gasto_mas_alto
 from interfaz import pedir_input,limpiar_pantalla,menu_inicio
 
@@ -19,7 +19,7 @@ def asistente():
         if opcion == 1:
             modulo_estudiante()
         elif opcion == 2:
-            agregar_recordatorio()
+            menu_recordatorio()
         elif opcion == 3:
             modulo_gastos()
         elif opcion == 4:
