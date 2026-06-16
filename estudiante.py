@@ -1,31 +1,22 @@
-from interfaz import pedir_input,limpiar_pantalla
+from interfaz import pedir_input,limpiar_pantalla,menu_estudiante
 
 def modulo_estudiante():
 
     materias = []
     examenes = []
     horas_estudio = []
+    notas = []
 
     opcion = 0
 
     while opcion !=11:
-        print("\n=== MÓDULO ESTUDIANTE ===")
-        print("1. Agregar Materias")
-        print("2. Ver Materias")
-        print("3. Registrar Notas")
-        print("4. Ver Notas")
-        print("5. Calcular promedio general")
-        print("6. Registrar examen")
-        print("7. Ver exámenes")
-        print("8. Registrar horas de estudio")
-        print("9. Ver horas de estudio")
-        print("10. Ver boletín académico")
-        print("11. Volver al menú principal")
+        limpiar_pantalla()
+        menu_estudiante()
 
-        opcion = int(input("Seleccione una opción: "))
+        opcion = int(pedir_input("Seleccione una opción: "))
 
         if opcion ==1:
-            materia = input("Ingrese el nombre de la materia: ")
+            materia = pedir_input("Ingrese el nombre de la materia: ")
             
             fila = [materia, 0]
             materias.append(fila)
@@ -80,7 +71,7 @@ def modulo_estudiante():
 
         if opcion ==6:
             
-            examen = input("Ingrese el nombre del examen: ")
+            examen = pedir_input("Ingrese el nombre del examen: ")
             examenes.append(examen)
 
         elif opcion ==7:
@@ -94,7 +85,7 @@ def modulo_estudiante():
                     print(examen)
 
         elif opcion ==8:
-            horas = int(input("Ingrese las horas de estudio: "))
+            horas = int(pedir_input("Ingrese las horas de estudio: "))
             horas_estudio.append(horas)
 
         elif opcion ==9:
