@@ -26,7 +26,7 @@ def promedio_materia(notas):
 def ver_materias(materias):
 
     print("\033[32m╠══════════════════════════════════════════════════════╣")
-    print("║                        MATERIAS                      ║")
+    print("║                    \033[1;4mMATERIAS\033[0m  \033[32m                        ║")
     print("╠══════════════════════════════════════════════════════╣")
 
     if len(materias) == 0:
@@ -69,10 +69,10 @@ def ver_materias(materias):
         print(f"║ {texto.center(52)} ║")
 
 
-def menu_inicio(materias,recordatorios,gastos):
+def menu_inicio(materias,recordatorios,gastos,ingresos):
         print("\033[32m")  # Blanco brillante sobre negro
         print("╔══════════════════════════════════════════════════════╗")
-        print("║                    ASISTENTE PERSONAL                ║")
+        print("║                    \033[1;4mASISTENTE PERSONAL\033[0m \033[32m               ║")
         print("╠══════════════════════════════════════════════════════╣")
         
         print(f"║   Materias registradas: {len(materias):<29}║")
@@ -81,11 +81,31 @@ def menu_inicio(materias,recordatorios,gastos):
         ver_materias(materias)
         
         print("╠══════════════════════════════════════════════════════╣")
+        print("║                    \033[1;4mRECORDATORIOS\033[0m  \033[32m                   ║")
+        print("╠══════════════════════════════════════════════════════╣")
         print("║  Próximos recordatorios:                             ║")
 
         for recordatorio in recordatorios[:3]:
             texto = f"• {recordatorio}"
             print(f"║ {texto[:52].ljust(52)} ║")                      
+        print("╠══════════════════════════════════════════════════════╣")
+        print("║                    \033[1;4mBILLETERA\033[0m          \033[32m               ║")
+        print("╠══════════════════════════════════════════════════════╣")
+
+        if len(gastos) == 0:
+            print("║              Sin gastos registrados                  ║")
+        else:
+            for gasto in gastos[-3:]:
+                nombre, categoria, cantidad = gasto
+                texto = f"• {nombre} | {categoria} | ${cantidad}"
+                print(f"║ {texto[:52].ljust(52)} ║")
+        print("╠══════════════════════════════════════════════════════╣")
+        if len(ingresos) == 0:
+            print("║              Sin ingresos registrados                ║")
+        else:
+            for ingreso in ingresos[-3:]:
+                texto = f"• ${ingreso}"
+                print(f"║ {texto[:52].ljust(52)} ║")
         print("\033[32m╠══════════════════════════════════════════════════════╣")
         print("║                                                      ║")
         print("║                [1]  Módulo Escolar                   ║")

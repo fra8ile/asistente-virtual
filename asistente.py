@@ -18,7 +18,7 @@ def asistente():
     limpiar_pantalla()
     while continuar:
 
-        menu_inicio(materias,recordatorios,gastos)
+        menu_inicio(materias,recordatorios,gastos,ingresos)
 
         opcion= int(pedir_input("Seleccionar una opción: "))
         if opcion < 0 or opcion > 4:
