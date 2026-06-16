@@ -85,10 +85,7 @@ def menu_inicio(materias,recordatorios,gastos):
 
         for recordatorio in recordatorios[:3]:
             texto = f"• {recordatorio}"
-            print(f"║ {texto[:52].ljust(52)} ║")
-
-        if len(recordatorios) == 0:
-            print("\033[32m║\033[0m"+"\033[31m  Sin recordatorios pendientes                        \033[0m"+"\033[32m║\033[0m")
+            print(f"║ {texto[:52].ljust(52)} ║")                      
         print("\033[32m╠══════════════════════════════════════════════════════╣")
         print("║                                                      ║")
         print("║                [1]  Módulo Escolar                   ║")
@@ -100,15 +97,31 @@ def menu_inicio(materias,recordatorios,gastos):
         print("╚══════════════════════════════════════════════════════╝")
         print("\033[0m")
 
-def menu_gastos():
+def menu_gastos(gastos,ingresos):
         print("\033[32m")
         print("╔══════════════════════════════════════════════════════╗")
         print("║                Modulo Gastos                         ║")
         print("╠══════════════════════════════════════════════════════╣")
-        print("║                [1] - Agregar gasto                   ║")
-        print("║                [2] - Total por categoría             ║")
-        print("║                [3] - Total del mes                   ║")
-        print("║                [4] - Gasto más alto                  ║")
+        if len(gastos) == 0:
+            print("║              Sin gastos registrados                  ║")
+        else:
+            for gasto in gastos[-3:]:
+                nombre, categoria, cantidad = gasto
+                texto = f"• {nombre} | {categoria} | ${cantidad}"
+                print(f"║ {texto[:52].ljust(52)} ║")
+        print("╠══════════════════════════════════════════════════════╣")
+        if len(ingresos) == 0:
+            print("║              Sin ingresos registrados                ║")
+        else:
+            for ingreso in ingresos[-3:]:
+                texto = f"• ${ingreso}"
+                print(f"║ {texto[:52].ljust(52)} ║")
+        print("╠══════════════════════════════════════════════════════╣")
+        print("║                [1] - Agregar ingresos                ║")
+        print("║                [2] - Agregar gasto                   ║")
+        print("║                [3] - Total por categoría             ║")
+        print("║                [4] - Total del mes                   ║")
+        print("║                [5] - Gasto más alto                  ║")
         print("╠══════════════════════════════════════════════════════╠")
         print("║                [0] - Regresar                        ║")
         print("╚══════════════════════════════════════════════════════╝")
@@ -129,17 +142,43 @@ def menu_estudiante(materias):
         print("║                [0] - Regresar                        ║")
         print("╚══════════════════════════════════════════════════════╝")
         print("\033[0m")
+def ver_recordatorios(recordatorios, limite=None):
 
-def menu_recordatorio():
+    print("╠══════════════════════════════════════════════════════╣")
+    print("║                    RECORDATORIOS                     ║")
+    print("╠══════════════════════════════════════════════════════╣")
+
+    if len(recordatorios) == 0:
+
+        print("║          Sin recordatorios pendientes                ║")
+
+    else:
+
+        lista = recordatorios
+
+        cantidad = len(recordatorios)
+
+        if limite is not None and limite < cantidad:
+            cantidad = limite
+        for i in range(cantidad):
+
+            texto = f"• {lista[i][0]}"
+            print(f"║ {texto[:52].ljust(52)} ║")
+
+            texto_fecha = f"  Fecha: {lista[i][2]} - Hora: {lista[i][1]}"
+            print(f"║ {texto_fecha[:52].ljust(52)} ║")
+
+            print("║                                                      ║")
+def menu_recordatorio(recordatorios):
         print("\033[32m")
         print("╔══════════════════════════════════════════════════════╗")
         print("║                Modulo Recordatorios                  ║")
+        ver_recordatorios(recordatorios, 3)
         print("╠══════════════════════════════════════════════════════╣")
         print("║                [1] - Agregar Recordatorio            ║")
-        print("║                [2] - Ver Recordatorios               ║")
-        print("║                [3] - Modificar Recordatorio          ║")
-        print("║                [4] - Buscar Recordatorio             ║")
-        print("║                [5] - Eliminar Recordatorio           ║")
+        print("║                [2] - Modificar Recordatorio          ║")
+        print("║                [3] - Buscar Recordatorio             ║")
+        print("║                [4] - Eliminar Recordatorio           ║")
         print("╠══════════════════════════════════════════════════════╣")
         print("║                [0] - Regresar                        ║")
         print("╚══════════════════════════════════════════════════════╝")
@@ -149,5 +188,5 @@ def mensaje_error(mensa):
     print("\033[31m")
     print("════════════════════════════════════════════════════════")
     print( ' ➜  ' + mensa)
-    print("════════════════════════════════════════════════════════\033[0m", end="")
+    print("════════════════════════════════════════════════════════\033[0m")
     

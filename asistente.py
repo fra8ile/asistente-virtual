@@ -12,6 +12,8 @@ def asistente():
     recordatorios=[]
 
     gastos = []
+    ingresos = []
+
     continuar=True
     limpiar_pantalla()
     while continuar:
@@ -27,7 +29,7 @@ def asistente():
             elif opcion == 2:
                 modulo_recordatorios(recordatorios)
             elif opcion == 3:
-                modulo_gastos(gastos)
+                modulo_gastos(gastos,ingresos)
             elif opcion == 4:
                 print("Borrar Recordatorio en desarrollo")
             else:

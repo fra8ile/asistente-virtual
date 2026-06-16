@@ -1,32 +1,93 @@
 from interfaz import menu_recordatorio,mensaje_error,pedir_input
 
 def agregar_recordatorio(recordatorios):
-    print('agregar recordatorio:')
 
-    titulo=pedir_input('ingrese el titulo del recordatorio')
-    if len(titulo) == 0:
-        mensaje_error("Titulo no puede ser vacío")
-    else:
-        dd=int(pedir_input('ingrese dia (dd):'))
-        mm=0
-        aaaa=0
-        fecha=""
-        if dd>0 and dd<31:        
-            mm=int(pedir_input('ingrese mes (mm):'))
-            if mm>0 and mm<13:
-                aaaa=int(pedir_input('ingrese año (aaaa):'))
-                fecha=f'{dd}/{mm}/{aaaa}'
-            else:
-                mensaje_error("Mes no válido")
-        else:
-            mensaje_error("Dia no válido")
+    print("Agregar recordatorio")
 
-        hora= pedir_input('ingrese la hora en formato hh:mm:')
+    titulo = pedir_input("Ingrese el título del recordatorio (0 para cancelar)")
 
-        recordatorio=[titulo, hora, fecha ]
-        recordatorios.append(recordatorio)
+    if titulo == "0":
+        return
 
-        print('recordatorio agregado exitosamente')
+    while len(titulo.strip()) == 0:
+        mensaje_error("El título no puede estar vacío")
+        titulo = pedir_input("Ingrese el título del recordatorio (0 para cancelar)")
+
+        if titulo == "0":
+            return
+
+    # DIA
+    while True:
+
+        dd = int(pedir_input("Ingrese día (1-31) [0 cancelar]:"))
+
+        if dd == 0:
+            return
+
+        if 1 <= dd <= 31:
+            break
+
+        mensaje_error("Día no válido")
+
+    # MES
+    while True:
+
+        mm = int(pedir_input("Ingrese mes (1-12) [0 cancelar]:"))
+
+        if mm == 0:
+            return
+
+        if 1 <= mm <= 12:
+            break
+
+        mensaje_error("Mes no válido")
+
+    # AÑO
+    while True:
+
+        aaaa = int(pedir_input("Ingrese año [0 cancelar]:"))
+
+        if aaaa == 0:
+            return
+
+        if aaaa >= 2025:
+            break
+
+        mensaje_error("Año no válido")
+
+    # HORA
+    while True:
+
+        hh = int(pedir_input("Ingrese hora (0-23) [-1 cancelar]:"))
+
+        if hh == -1:
+            return
+
+        if 0 <= hh <= 23:
+            break
+
+        mensaje_error("Hora no válida")
+
+    # MINUTOS
+    while True:
+
+        mn = int(pedir_input("Ingrese minutos (0-59) [-1 cancelar]:"))
+
+        if mn == -1:
+            return
+
+        if 0 <= mn <= 59:
+            break
+
+        mensaje_error("Minutos no válidos")
+
+    fecha = f"{dd:02d}/{mm:02d}/{aaaa}"
+    hora = f"{hh:02d}:{mn:02d}"
+
+    recordatorio = [titulo, hora, fecha]
+    recordatorios.append(recordatorio)
+
+    print("Recordatorio agregado exitosamente")
 
 
 def ver_recordatorios(recordatorios):
@@ -132,20 +193,18 @@ def modulo_recordatorios(recordatorios):
 
     while continuar:
         
-        menu_recordatorio()
+        menu_recordatorio(recordatorios)
         opcion=int(pedir_input('seleccionar una opcion:'))
-        if opcion <0 or opcion>6:
+        if opcion <0 or opcion>5:
             mensaje_error('opcion invalida, intentelo nuevamnete')
         else:
             if opcion ==1:
                 agregar_recordatorio(recordatorios)
-            elif opcion ==2:
-                ver_recordatorios(recordatorios)
-            elif opcion==3:
+            elif opcion==2:
                 modificar_recordatorio(recordatorios)
-            elif opcion==4:
+            elif opcion==3:
                 buscar_recordatorio(recordatorios)
-            elif opcion==5:
+            elif opcion==4:
                 eliminar_recordatorio(recordatorios)
             
             elif opcion ==0:

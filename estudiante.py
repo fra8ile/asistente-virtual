@@ -18,7 +18,7 @@ def modulo_estudiante(materias,examenes,horas_estudio):
 
         menu_estudiante(materias)
         opcion = int(pedir_input("Seleccione una opción: "))
-        if opcion <0 or opcion>11:
+        if opcion <0 or opcion>5:
             mensaje_error("Opción no válida. Por favor, intente nuevamente.")
         else:
             if opcion ==1:
