@@ -105,13 +105,15 @@ def modulo_estudiante():
 
             print("\n=== BOLETÍN ACADÉMICO ===")
             
-            suma = 0
+            suma_promedios = 0
+            cantidad_materias = 0
 
             for i in range(len(materias)):
-                
+               
                 materia = materias[i]
 
                 if len(notas[i]) > 0:
+
                     promedio = sum(notas[i]) / len(notas[i])
 
                     if promedio >= 8:
@@ -126,3 +128,15 @@ def modulo_estudiante():
                     print("Promedio:", promedio)
                     print("Estado:", estado)
                     print()
+
+                    suma_promedios += promedio
+                    cantidad_materias += 1
+
+            if cantidad_materias > 0:
+
+                promedio_general = suma_promedios / cantidad_materias
+
+                print("Promedio general:", promedio_general)
+
+            else:
+                print("No hay materias con notas registradas.")
