@@ -18,7 +18,7 @@ def modulo_estudiante():
         if opcion ==1:
             materia = pedir_input("Ingrese el nombre de la materia: ")
 
-            materias.append(fila)
+            materias.append(materia)
             notas.append([])
 
         elif opcion ==2:
