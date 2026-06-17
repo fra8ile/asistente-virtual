@@ -1,11 +1,13 @@
 from interfaz import pedir_input,limpiar_pantalla,menu_estudiante
 
-def modulo_estudiante():
 
-    materias = []
-    examenes = []
-    horas_estudio = []
-    notas = []
+
+materias = []
+examenes = []
+horas_estudio = []
+notas = []
+
+def modulo_estudiante():
 
     opcion = 0
 
