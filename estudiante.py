@@ -23,6 +23,9 @@ def modulo_estudiante():
             materias.append(materia)
             notas.append([])
 
+            print("Materia registrada correctamente.")
+            print("presione Enter para continuar...")
+
         elif opcion ==2:
             
             if len(materias) ==0:
@@ -32,6 +35,8 @@ def modulo_estudiante():
                 
                 for materia in materias:
                     print("Materia:", materia)
+
+                input("Presione Enter para continuar...")
 
         elif opcion ==3:
             
