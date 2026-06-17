@@ -58,7 +58,10 @@ def modulo_estudiante():
                 lista_notas = notas[posicion - 1]
 
                 print("Materia:", materias[posicion - 1])
-                print("Notas:", lista_notas)
+                print("Notas Registradas:")
+
+                for nota in lista_notas:
+                    print(nota)
 
                 if len(lista_notas) > 0:
                     promedio = sum(lista_notas) / len(lista_notas)
