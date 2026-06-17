@@ -33,8 +33,8 @@ def modulo_estudiante():
             
             else:
                 
-                print("Materias:")
-                for materia in range(len(materias)):
+                print("Materias Registradas:")
+                for i in range(len(materias)):
                     print(i+1, "-", materias[i])
 
                 posicion = int(pedir_input("Seleccione una materia: "))
