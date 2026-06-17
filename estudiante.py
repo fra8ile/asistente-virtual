@@ -9,7 +9,7 @@ def modulo_estudiante():
 
     opcion = 0
 
-    while opcion !=11:
+    while opcion !=10:
         limpiar_pantalla()
         menu_estudiante()
 
@@ -17,9 +17,9 @@ def modulo_estudiante():
 
         if opcion ==1:
             materia = pedir_input("Ingrese el nombre de la materia: ")
-            
-            fila = [materia, 0]
+
             materias.append(fila)
+            notas.append([])
 
         elif opcion ==2:
             
@@ -28,8 +28,8 @@ def modulo_estudiante():
             
             else:
                 
-                for fila in materias:
-                    print("Materia:", fila[0], "- Nota:", fila[1])
+                for materia in materias:
+                    print("Materia:", materia)
 
         elif opcion ==3:
             
@@ -39,13 +39,14 @@ def modulo_estudiante():
                 print("Materias:")
 
                 for i in range(len(materias)):
-                    print(i + 1, "-", materias[i][0])
+                    print(i + 1, "-", materias[i])
 
-                posicion = int(input("Seleccione la materia para registrar la nota: "))
+                posicion = int(pedir_input("Seleccione la materia para registrar la nota: "))
 
-                nota = float(input("Ingrese la nota: "))
+                nota = float(pedir_input("Ingrese la nota: "))
 
-                materias[posicion - 1][1] = nota
+                notas[posicion - 1].append(nota)
+
                 print("Nota registrada correctamente.")
 
         elif opcion ==4:
@@ -54,27 +55,34 @@ def modulo_estudiante():
                 print("No hay materias registradas.")
             else:
 
-                print("Notas registradas:")
-                for fila in materias:
-                    print(fila[0], ":", fila[1])
+                for i in range(len(materias)):
+                    print(i + 1, "-", materias[i])
+                
+                posicion = int(pedir_input("Seleccione la materia para ver las notas: "))
+                
+                lista_notas = notas[posicion - 1]
 
-        elif opcion ==5:
-            
-            suma = 0
+                print("Materia:", materias[posicion - 1])
+                print("Notas:", lista_notas)
 
-            for fila in materias:
-                suma = suma + fila[1]
+                if len(lista_notas) > 0:
+                    promedio = sum(lista_notas) / len(lista_notas)
+                    print("Promedio:", promedio)
 
-            promedio = suma / len(materias)
+                    if promedio >= 8:
+                        print("PROMOCIONA")
+                    elif promedio >= 4:
+                        print("REGULAR")
+                    else:
+                        print("RECURSA")
 
-            print("El promedio general es:", promedio)
 
-        if opcion ==6:
+        if opcion ==5:
             
             examen = pedir_input("Ingrese el nombre del examen: ")
             examenes.append(examen)
 
-        elif opcion ==7:
+        elif opcion ==6:
 
             if len(examenes) ==0:
                 print("No hay exámenes registrados.")
@@ -84,35 +92,37 @@ def modulo_estudiante():
                 for examen in examenes:
                     print(examen)
 
-        elif opcion ==8:
+        elif opcion ==7 :
             horas = int(pedir_input("Ingrese las horas de estudio: "))
             horas_estudio.append(horas)
 
-        elif opcion ==9:
+        elif opcion ==8:
             print("Horas de estudio registradas: ")
             for horas in horas_estudio:
                 print(horas)
 
-        elif opcion ==10:
+        elif opcion ==9:
 
             print("\n=== BOLETÍN ACADÉMICO ===")
             
             suma = 0
 
-            for fila in materias:
-
-                materia = fila[0]
-                nota = fila[1]
-
-                if nota >= 4:
-                    estado = "Aprobado"
-                else:
-                    estado = "Reprobado"
-
-                print(materia, "- Nota:", nota, "-", estado)
+            for i in range(len(materias)):
                 
-                suma = suma + nota
-            
-            if len(materias) > 0:
-                promedio = suma / len(materias)
-                print("Promedio general:", promedio)
+                materia = materias[i]
+
+                if len(notas[i]) > 0:
+                    promedio = sum(notas[i]) / len(notas[i])
+
+                    if promedio >= 8:
+                        estado = "PROMOCIONA"
+                    elif promedio >= 4:
+                        estado = "REGULAR"
+                    else:
+                        estado = "RECURSA"
+                    
+                    print(materia)
+                    print("Notas:", notas[i])
+                    print("Promedio:", promedio)
+                    print("Estado:", estado)
+                    print()
