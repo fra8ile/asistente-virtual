@@ -117,6 +117,7 @@ def menu_inicio(materias,recordatorios,gastos,ingresos):
         print("╚══════════════════════════════════════════════════════╝")
         print("\033[0m")
 
+<<<<<<< HEAD
 def menu_gastos(gastos,ingresos):
         print("\033[32m")
         print("╔══════════════════════════════════════════════════════╗")
@@ -202,11 +203,22 @@ def menu_recordatorio(recordatorios):
         print("╠══════════════════════════════════════════════════════╣")
         print("║                [0] - Regresar                        ║")
         print("╚══════════════════════════════════════════════════════╝")
+=======
+def menu_estudiante():
+        print("\033[96m")
+        print("╔══════════════════════════════════════════════╗")
+        print("║              MÓDULO ESTUDIANTE               ║")
+        print("╠══════════════════════════════════════════════╣")
+        print("║              1 - Agregar Materias            ║")
+        print("║              2 - Registrar Notas             ║")
+        print("║              3 - Ver Notas                   ║")
+        print("║              4 - Registrar examen            ║")
+        print("║              5 - Ver exámenes                ║")
+        print("║              6 - Registrar horas de estudio  ║")
+        print("║              7 - Ver horas de estudio        ║")
+        print("║              8 - Ver boletín académico       ║")
+        print("╠══════════════════════════════════════════════╣")
+        print("║              9 - Volver al menú principal    ║")
+        print("╚══════════════════════════════════════════════╝")
+>>>>>>> 5aff0861b94aed7f7ce5d3729021109aca16543e
         print("\033[0m")
-
-def mensaje_error(mensa):
-    print("\033[31m")
-    print("════════════════════════════════════════════════════════")
-    print( ' ➜  ' + mensa)
-    print("════════════════════════════════════════════════════════\033[0m")
-    
