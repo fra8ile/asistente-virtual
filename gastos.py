@@ -1,14 +1,15 @@
-from interfaz import pedir_input,limpiar_pantalla,menu_gastos
+from interfaz import pedir_input,limpiar_pantalla
 
+gastos = []
 
-def agregar_gasto(gastos):
-    nombre = pedir_input("Nombre del gasto: ")
-    categoria = pedir_input("Categoría (comida/transporte/ocio/otro): ")
-    cantidad = float(pedir_input("Cantidad: $"))
+def agregar_gasto():
+    nombre = input("Nombre del gasto: ")
+    categoria = input("Categoría (comida/transporte/ocio/otro): ")
+    cantidad = float(input("Cantidad: $"))
     gastos.append((nombre, categoria, cantidad))
     print("Gasto agregado exitosamente.")
 
-def total_por_categoria(gastos):
+def total_por_categoria():
     categorias = []
     nombres_cat = []
 
@@ -28,14 +29,14 @@ def total_por_categoria(gastos):
     for i in range(len(nombres_cat)):
         print(nombres_cat[i] + ": $" + str(categorias[i]))
 
-def total_mes(gastos):
+def total_mes():
     total = 0
     for gasto in gastos:
         nombre, categoria, cantidad = gasto
         total += cantidad
     print("\nTotal del mes: $" + str(total))
 
-def gasto_mas_alto(gastos):
+def gasto_mas_alto():
     if len(gastos) == 0:
         print("No hay gastos registrados.")
         return
@@ -51,26 +52,26 @@ def gasto_mas_alto(gastos):
     print("Categoría: " + categoria_mayor)
     print("Cantidad: $" + str(cantidad_mayor))
 
-def modulo_gastos(gastos,ingresos):
-    continuar=True
-    while continuar:
-        limpiar_pantalla()
-        menu_gastos(gastos,ingresos)
+def modulo_gastos():
+    while True:
+        print("\n=== MÓDULO GASTOS ===")
+        print("1. Agregar gasto")
+        print("2. Total por categoría")
+        print("3. Total del mes")
+        print("4. Gasto más alto")
+        print("5. Volver al menú principal")
 
         opcion = int(pedir_input("Seleccione una opción: "))
 
-        if opcion < 0 or opcion > 4:
-            print("Opción no válida. Por favor, intente nuevamente.")
+        if opcion == "1":
+            agregar_gasto()
+        elif opcion == "2":
+            total_por_categoria()
+        elif opcion == "3":
+            total_mes()
+        elif opcion == "4":
+            gasto_mas_alto()
+        elif opcion == "5":
+            break
         else:
-            if opcion == 1:
-                ingresos.append(pedir_input("Ingrese el ingreso: "))
-            if opcion == 2:
-                agregar_gasto(gastos)
-            elif opcion == 3:
-                total_por_categoria(gastos)
-            elif opcion == 4:
-                total_mes(gastos)
-            elif opcion == 5:
-                gasto_mas_alto(gastos)
-            else:
-                continuar=False
+            print("Opción no válida. Por favor, intente nuevamente.")

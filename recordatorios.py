@@ -1,96 +1,21 @@
-from interfaz import menu_recordatorio,mensaje_error,pedir_input
 
-def agregar_recordatorio(recordatorios):
+recordatorios=[]
 
-    print("Agregar recordatorio")
 
-    titulo = pedir_input("Ingrese el título del recordatorio (0 para cancelar)")
+def agregar_recordatorio():
+    print('agregar recordatorio:')
 
-    if titulo == "0":
-        return
+    titulo=input('ingrese el titulo del recordatorio')
+    fecha=input('ingrese la fecha en formato dd/mm/aaaa:')
+    hora= input('ingrese la hora en formato hh:mm:')
 
-    while len(titulo.strip()) == 0:
-        mensaje_error("El título no puede estar vacío")
-        titulo = pedir_input("Ingrese el título del recordatorio (0 para cancelar)")
-
-        if titulo == "0":
-            return
-
-    # DIA
-    while True:
-
-        dd = int(pedir_input("Ingrese día (1-31) [0 cancelar]:"))
-
-        if dd == 0:
-            return
-
-        if 1 <= dd <= 31:
-            break
-
-        mensaje_error("Día no válido")
-
-    # MES
-    while True:
-
-        mm = int(pedir_input("Ingrese mes (1-12) [0 cancelar]:"))
-
-        if mm == 0:
-            return
-
-        if 1 <= mm <= 12:
-            break
-
-        mensaje_error("Mes no válido")
-
-    # AÑO
-    while True:
-
-        aaaa = int(pedir_input("Ingrese año [0 cancelar]:"))
-
-        if aaaa == 0:
-            return
-
-        if aaaa >= 2025:
-            break
-
-        mensaje_error("Año no válido")
-
-    # HORA
-    while True:
-
-        hh = int(pedir_input("Ingrese hora (0-23) [-1 cancelar]:"))
-
-        if hh == -1:
-            return
-
-        if 0 <= hh <= 23:
-            break
-
-        mensaje_error("Hora no válida")
-
-    # MINUTOS
-    while True:
-
-        mn = int(pedir_input("Ingrese minutos (0-59) [-1 cancelar]:"))
-
-        if mn == -1:
-            return
-
-        if 0 <= mn <= 59:
-            break
-
-        mensaje_error("Minutos no válidos")
-
-    fecha = f"{dd:02d}/{mm:02d}/{aaaa}"
-    hora = f"{hh:02d}:{mn:02d}"
-
-    recordatorio = [titulo, hora, fecha]
+    recordatorio=[titulo, hora, fecha ]
     recordatorios.append(recordatorio)
 
-    print("Recordatorio agregado exitosamente")
+    print('recordatorio agregado exitosamente')
 
 
-def ver_recordatorios(recordatorios):
+def ver_recordatorios():
 
     cant_recordatorios= len(recordatorios)
 
@@ -110,9 +35,9 @@ def ver_recordatorios(recordatorios):
             i = i+1 
 
 
-def modificar_recordatorio(recordatorios):
+def modificar_recordatorio():
     
-    ver_recordatorios(recordatorios)
+    ver_recordatorios()
 
     cant_recordatorios= len(recordatorios)
 
@@ -141,9 +66,9 @@ def modificar_recordatorio(recordatorios):
 
 
 
-def eliminar_recordatorio(recordatorios):
+def eliminar_recordatorio():
     
-    ver_recordatorios(recordatorios)
+    ver_recordatorios()
 
     cant_recordatorios= len(recordatorios)
 
@@ -161,7 +86,7 @@ def eliminar_recordatorio(recordatorios):
 
     
 
-def buscar_recordatorio(recordatorios):
+def buscar_recordatorio():
 
     cant_recordatorios= len(recordatorios)
     
@@ -187,30 +112,34 @@ def buscar_recordatorio(recordatorios):
         if contador==0:
             print('no se encontro el recordatorio con el titulo ingresado')
             
-def modulo_recordatorios(recordatorios):
+def menu_recordatorio():
 
-    continuar=True
+    opcion=0
 
-    while continuar:
+    while opcion!=6:
+        print('\n ==MENU DE RECORDATORIOS==')
+        print('1.agregar recordatorio')
+        print('2. ver recordatorio')
+        print('3. modificar recordatorio')
+        print('4. buscar recordatorio')
+        print('5. eliminar recordatorio')
+        print('6. volver al menu principal')
         
-        menu_recordatorio(recordatorios)
-        opcion=int(pedir_input('seleccionar una opcion:'))
-        if opcion <0 or opcion>5:
-            mensaje_error('opcion invalida, intentelo nuevamnete')
-        else:
-            if opcion ==1:
-                agregar_recordatorio(recordatorios)
-            elif opcion==2:
-                modificar_recordatorio(recordatorios)
-            elif opcion==3:
-                buscar_recordatorio(recordatorios)
-            elif opcion==4:
-                eliminar_recordatorio(recordatorios)
-            
-            elif opcion ==0:
-                print('volviendo al menu principal...')
-                continuar=False
-            else:
-                print('opcion invalida, intentelo nuevamnete')
+        opcion=int(input('seleccionar una opcion:'))
 
+        if opcion ==1:
+            agregar_recordatorio()
+        elif opcion ==2:
+            ver_recordatorios()
+        elif opcion==3:
+            modificar_recordatorio()
+        elif opcion==4:
+            buscar_recordatorio()
+        elif opcion==5:
+            eliminar_recordatorio()
+        
+        elif opcion ==6:
+            print('volviendo al menu principal...')
+        else:
+            print('opcion invalida, intentelo nuevamnete')
 
