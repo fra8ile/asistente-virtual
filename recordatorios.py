@@ -41,7 +41,9 @@ def agregar_recordatorio():
     mes = int(input('ingrese el mes (numero): '))
     año = int(input('ingrese el año (numero, ej 2026): '))
 
-    while fecha_valida(dia, mes, año) == 0:
+    fecha=fecha_valida(dia, mes, año)
+
+    while fecha == 0:
 
         print('fecha invalida, intentelo nuevamente')
         
@@ -52,7 +54,9 @@ def agregar_recordatorio():
     hora = int(input('ingrese la hora (0 a 23): '))
     minuto = int(input('ingrese los minutos (0 a 59): '))
 
-    while hora_valida(hora, minuto) == 0:
+    hora_total = hora_valida(hora, minuto)
+
+    while hora_total == 0:
         
         print('hora invalida, intentelo nuevamente')
 
