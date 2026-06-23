@@ -2,6 +2,11 @@ from interfaz import menu_recordatorio
 
 def fecha_valida(dia, mes, año):
 
+    """
+    Valida que la fecha ingresada sea correcta.
+    Retorna 1 si es válida, 0 si no.
+    """
+
     valido = 1
 
     if mes < 1 or mes > 12:
@@ -21,6 +26,10 @@ def fecha_valida(dia, mes, año):
 
 def hora_valida(hora, minuto):
 
+    """
+    Valida que la hora esté dentro de rangos correctos.
+    """
+
     valido = 1
 
     if hora < 0 or hora > 23:
@@ -32,6 +41,11 @@ def hora_valida(hora, minuto):
 
 
 def agregar_recordatorio(recordatorios):
+
+    '''
+    Agrega un nuevo recordatorio a la lista: (titulo, fecha, hora, prioridad).
+    '''
+
     print('agregar recordatorio:')
 
     titulo=input('ingrese el titulo del recordatorio')
@@ -80,6 +94,10 @@ def agregar_recordatorio(recordatorios):
 
 def ver_recordatorios(recordatorios):
 
+    """
+    Muestra todos los recordatorios almacenados.
+    """
+
     cant_recordatorios= len(recordatorios)
 
     if cant_recordatorios ==0 :
@@ -103,6 +121,11 @@ def ver_recordatorios(recordatorios):
 
 
 def modificar_recordatorio(recordatorios):
+
+    """
+    Permite modificar un recordatorio existente.
+    Incluye validación de fecha, hora y prioridad.
+    """
     
     ver_recordatorios(recordatorios)
 
@@ -172,6 +195,10 @@ def modificar_recordatorio(recordatorios):
 
 
 def eliminar_recordatorio(recordatorios):
+
+    """
+    Elimina un recordatorio según índice.
+    """
     
     ver_recordatorios(recordatorios)
 
@@ -192,6 +219,10 @@ def eliminar_recordatorio(recordatorios):
     
 
 def buscar_recordatorio(recordatorios):
+
+    """
+    Busca recordatorios por título.
+    """
 
     cant_recordatorios= len(recordatorios)
     
@@ -226,6 +257,11 @@ def buscar_recordatorio(recordatorios):
 
 
 def recordatorios_por_prioridad(recordatorios):
+
+    """
+    Clasifica y muestra recordatorios por prioridad:
+    ALTA, MEDIA, BAJA
+    """
 
     cant_recordatorios = len(recordatorios)
 
@@ -283,6 +319,11 @@ def recordatorios_por_prioridad(recordatorios):
 
 
 def modulo_recordatorio(recordatorios):
+
+    """
+    Menú principal del sistema de recordatorios.
+    Permite acceso a todas las funciones del módulo.
+    """
 
     opcion=0
 

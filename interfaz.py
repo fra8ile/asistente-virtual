@@ -1,8 +1,9 @@
 import os
 
 def limpiar_pantalla():
-    """Limpia la consola según el sistema operativo (Windows o Unix)."""
+    """Limpia la consola según el sistema operativo (Windows:'cls' o Unix:'clear')."""
     os.system("cls" if os.name == "nt" else "clear")
+
 
 def pedir_input(mensaje):
     """Solicita un dato al usuario con formato visual y limpia la pantalla al confirmar.
@@ -16,11 +17,17 @@ def pedir_input(mensaje):
     return entrada
 
 def menu_inicio(materias, recordatorios):
+    """""
+    muestra el menu principal del asistente, 
+    lista de materias y recordatorios.
+    """""
+
     print("\033[96m")
     print("╔══════════════════════════════════════════════╗")
     print("║       ¡Hola! Soy tu asistente virtual.       ║")
     print("╠══════════════════════════════════════════════╣")
-
+    
+    #seccion de materias y recordatorios
     print("║ Materias:                                    ║")
     for i in range(len(materias)):
         print(f"║  {i + 1}. {materias[i]}")
@@ -30,7 +37,7 @@ def menu_inicio(materias, recordatorios):
     print("║ Recordatorios:                               ║")
     for i in range(len(recordatorios)):
         print(f"║  {i + 1}. {recordatorios[i]}")
-
+#opciones principales del asistente
     print("╠══════════════════════════════════════════════╣")
     print("║              1 - Menu escolar                ║")
     print("║              2 - Recordatorios               ║")
@@ -41,6 +48,10 @@ def menu_inicio(materias, recordatorios):
     print("\033[0m")
 
 def menu_estudiante():
+        """
+        Menú del módulo académico (estudiante).
+        Permite gestionar materias, notas, exámenes y horas de estudio.
+        """
         print("\033[96m")
         print("╔══════════════════════════════════════════════╗")
         print("║              MÓDULO ESTUDIANTE               ║")
@@ -59,6 +70,8 @@ def menu_estudiante():
         print("\033[0m")
 
 def menu_recordatorio():
+        """Menú del módulo de recordatorios."""
+        
         print("\033[96m")
         print("╔══════════════════════════════════════════════╗")
         print("║              MÓDULO RECORDATORIOS            ║")            

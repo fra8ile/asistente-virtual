@@ -2,6 +2,11 @@ from interfaz import pedir_input,limpiar_pantalla,menu_estudiante
 
 def modulo_estudiante(materias,examenes,horas_estudio,notas):
 
+    """
+    Módulo académico completo.
+    Permite gestionar materias, notas, exámenes y horas de estudio.
+    """
+
     opcion = 0
 
     while opcion !=9:
@@ -10,6 +15,7 @@ def modulo_estudiante(materias,examenes,horas_estudio,notas):
 
         opcion = int(pedir_input("Seleccione una opción: "))
 
+        #agregar materia
         if opcion ==1:
             materia = pedir_input("Ingrese el nombre de la materia: ")
 
@@ -18,7 +24,8 @@ def modulo_estudiante(materias,examenes,horas_estudio,notas):
 
             print("Materia registrada correctamente.")
             print("presione Enter para continuar...")
-
+        
+        #registrar nota
         elif opcion ==2:
             
             if len(materias) ==0:
@@ -37,6 +44,7 @@ def modulo_estudiante(materias,examenes,horas_estudio,notas):
 
                 print("Nota registrada correctamente.")
 
+        #ver notas
         elif opcion ==3:
             
             if len(materias) ==0:
@@ -68,11 +76,13 @@ def modulo_estudiante(materias,examenes,horas_estudio,notas):
                         print("RECURSA")
 
 
+        #registrar examen
         if opcion ==4:
             
             examen = pedir_input("Ingrese el nombre del examen: ")
             examenes.append(examen)
-
+        
+        #ver examenes
         elif opcion ==5:
 
             if len(examenes) ==0:
@@ -83,6 +93,7 @@ def modulo_estudiante(materias,examenes,horas_estudio,notas):
                 for examen in examenes:
                     print(examen)
 
+        #horas de estudio
         elif opcion ==6 :
             horas = int(pedir_input("Ingrese las horas de estudio: "))
             horas_estudio.append(horas)
@@ -93,6 +104,13 @@ def modulo_estudiante(materias,examenes,horas_estudio,notas):
                 print(horas)
 
         elif opcion ==8:
+
+            '''boletin academico:
+            Calcula promedio por materia y estado académico:
+            - PROMOCIONA
+            - REGULAR
+            - RECURSA
+            '''
 
             print("\n=== BOLETÍN ACADÉMICO ===")
             
