@@ -63,15 +63,15 @@ def modulo_gastos():
 
         opcion = int(pedir_input("Seleccione una opción: "))
 
-        if opcion == "1":
+        if opcion == 1:
             agregar_gasto()
-        elif opcion == "2":
+        elif opcion == 2:
             total_por_categoria()
-        elif opcion == "3":
+        elif opcion == 3:
             total_mes()
-        elif opcion == "4":
+        elif opcion == 4:
             gasto_mas_alto()
-        elif opcion == "5":
+        elif opcion == 5:
             break
         else:
             print("Opción no válida. Por favor, intente nuevamente.")

@@ -1,10 +1,16 @@
-from recordatorios import menu_recordatorio
+from recordatorios import modulo_recordatorio
 from estudiante import modulo_estudiante
-from gastos import agregar_gasto,modulo_gastos,total_por_categoria,total_mes,gasto_mas_alto
+from gastos import modulo_gastos
 from interfaz import pedir_input,limpiar_pantalla,menu_inicio
 
 
 def asistente():
+    materias = []
+    examenes = []
+    horas_estudio = []
+    notas = []
+
+    recordatorios = []
 
     continuar=True
 
@@ -12,19 +18,17 @@ def asistente():
         
         limpiar_pantalla()
 
-        menu_inicio()
+        menu_inicio(materias,recordatorios)
 
         opcion= int(pedir_input("Seleccionar una opción: "))
         
         if opcion == 1:
-            modulo_estudiante()
+            modulo_estudiante(materias,examenes,horas_estudio,notas)
         elif opcion == 2:
-            menu_recordatorio()
+            modulo_recordatorio(recordatorios)
         elif opcion == 3:
             modulo_gastos()
-        elif opcion == 4:
-            print("Borrar Recordatorio en desarrollo")
-        elif opcion == 6:
+        elif opcion == 0:
             print("¡Hasta luego!")
             continuar = False
         else:

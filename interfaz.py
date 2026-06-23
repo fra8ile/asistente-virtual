@@ -15,18 +15,30 @@ def pedir_input(mensaje):
     limpiar_pantalla()
     return entrada
 
-def menu_inicio():
-        print("\033[96m")
-        print("╔══════════════════════════════════════════════╗")
-        print("║       ¡Hola! Soy tu asistente virtual.       ║")
-        print("╠══════════════════════════════════════════════╣")
-        print("║              1 - Menu escolar                ║")
-        print("║              2 - Recordatorios               ║")
-        print("║              3 - Controlar gastos            ║")
-        print("╠══════════════════════════════════════════════╣")
-        print("║              0 - Regresar                    ║")
-        print("╚══════════════════════════════════════════════╝")
-        print("\033[0m")
+def menu_inicio(materias, recordatorios):
+    print("\033[96m")
+    print("╔══════════════════════════════════════════════╗")
+    print("║       ¡Hola! Soy tu asistente virtual.       ║")
+    print("╠══════════════════════════════════════════════╣")
+
+    print("║ Materias:                                    ║")
+    for i in range(len(materias)):
+        print(f"║  {i + 1}. {materias[i]}")
+
+    print("╠══════════════════════════════════════════════╣")
+
+    print("║ Recordatorios:                               ║")
+    for i in range(len(recordatorios)):
+        print(f"║  {i + 1}. {recordatorios[i]}")
+
+    print("╠══════════════════════════════════════════════╣")
+    print("║              1 - Menu escolar                ║")
+    print("║              2 - Recordatorios               ║")
+    print("║              3 - Controlar gastos            ║")
+    print("╠══════════════════════════════════════════════╣")
+    print("║              0 - Regresar                    ║")
+    print("╚══════════════════════════════════════════════╝")
+    print("\033[0m")
 
 def menu_estudiante():
         print("\033[96m")
@@ -43,5 +55,20 @@ def menu_estudiante():
         print("║              8 - Ver boletín académico       ║")
         print("╠══════════════════════════════════════════════╣")
         print("║              9 - Volver al menú principal    ║")
+        print("╚══════════════════════════════════════════════╝")
+        print("\033[0m")
+
+def menu_recordatorio():
+        print("\033[96m")
+        print("╔══════════════════════════════════════════════╗")
+        print("║              MÓDULO RECORDATORIOS            ║")            
+        print("╠══════════════════════════════════════════════╣")
+        print("║              1 - Agregar Recordatorio        ║")
+        print("║              2 - Ver Recordatorios           ║")
+        print("║              3 - Modificar Recordatorio      ║")
+        print("║              4 - Buscar Recordatorio         ║")
+        print("║              5 - Eliminar Recordatorio       ║")
+        print("╠══════════════════════════════════════════════╣")
+        print("║              0 - Volver al menú principal    ║")
         print("╚══════════════════════════════════════════════╝")
         print("\033[0m")

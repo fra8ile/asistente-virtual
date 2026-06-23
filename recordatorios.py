@@ -1,5 +1,4 @@
-
-recordatorios=[]
+from interfaz import menu_recordatorio
 
 def fecha_valida(dia, mes, año):
 
@@ -32,7 +31,7 @@ def hora_valida(hora, minuto):
     return valido
 
 
-def agregar_recordatorio():
+def agregar_recordatorio(recordatorios):
     print('agregar recordatorio:')
 
     titulo=input('ingrese el titulo del recordatorio')
@@ -79,7 +78,7 @@ def agregar_recordatorio():
     print('recordatorio agregado exitosamente')
 
 
-def ver_recordatorios():
+def ver_recordatorios(recordatorios):
 
     cant_recordatorios= len(recordatorios)
 
@@ -103,9 +102,9 @@ def ver_recordatorios():
 
 
 
-def modificar_recordatorio():
+def modificar_recordatorio(recordatorios):
     
-    ver_recordatorios()
+    ver_recordatorios(recordatorios)
 
     cant_recordatorios= len(recordatorios)
 
@@ -172,9 +171,9 @@ def modificar_recordatorio():
 
 
 
-def eliminar_recordatorio():
+def eliminar_recordatorio(recordatorios):
     
-    ver_recordatorios()
+    ver_recordatorios(recordatorios)
 
     cant_recordatorios= len(recordatorios)
 
@@ -192,7 +191,7 @@ def eliminar_recordatorio():
 
     
 
-def buscar_recordatorio():
+def buscar_recordatorio(recordatorios):
 
     cant_recordatorios= len(recordatorios)
     
@@ -223,31 +222,24 @@ def buscar_recordatorio():
         if contador==0:
             print('no se encontro el recordatorio con el titulo ingresado')
             
-def menu_recordatorio():
+def modulo_recordatorio(recordatorios):
 
     opcion=0
 
     while opcion!=6:
-        print('\n ==MENU DE RECORDATORIOS==')
-        print('1.agregar recordatorio')
-        print('2. ver recordatorio')
-        print('3. modificar recordatorio')
-        print('4. buscar recordatorio')
-        print('5. eliminar recordatorio')
-        print('6. volver al menu principal')
-        
+        menu_recordatorio()
         opcion=int(input('seleccionar una opcion:'))
 
         if opcion ==1:
-            agregar_recordatorio()
+            agregar_recordatorio(recordatorios)
         elif opcion ==2:
-            ver_recordatorios()
+            ver_recordatorios(recordatorios)
         elif opcion==3:
-            modificar_recordatorio()
+            modificar_recordatorio(recordatorios)
         elif opcion==4:
-            buscar_recordatorio()
+            buscar_recordatorio(recordatorios)
         elif opcion==5:
-            eliminar_recordatorio()
+            eliminar_recordatorio(recordatorios)
         
         elif opcion ==6:
             print('volviendo al menu principal...')
