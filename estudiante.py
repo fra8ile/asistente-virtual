@@ -5,7 +5,6 @@ def modulo_estudiante(materias,examenes,horas_estudio,notas):
     opcion = 0
 
     while opcion !=9:
-        limpiar_pantalla()
         menu_estudiante()
 
         opcion = int(pedir_input("Seleccione una opción: "))
