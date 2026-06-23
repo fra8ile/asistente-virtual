@@ -222,27 +222,96 @@ def buscar_recordatorio(recordatorios):
         if contador==0:
             print('no se encontro el recordatorio con el titulo ingresado')
             
+
+
+
+def recordatorios_por_prioridad(recordatorios):
+
+    cant_recordatorios = len(recordatorios)
+
+    if cant_recordatorios == 0:
+        print('no hay recordatorios registrados')
+    else:
+        altas = []
+        medias = []
+        bajas = []
+
+        i = 0
+        while i < cant_recordatorios:
+            recordatorio = recordatorios[i]
+            prioridad = recordatorio[3]
+
+            if prioridad == 'ALTA' or prioridad == 'alta':
+                altas.append(recordatorio)
+            elif prioridad == 'MEDIA' or prioridad == 'media':
+                medias.append(recordatorio)
+            else:
+                bajas.append(recordatorio)
+
+            i = i + 1
+
+        print('\n== RECORDATORIOS POR PRIORIDAD ==')
+
+        contador = 1
+
+        i = 0
+        while i < len(altas):
+            recordatorio = altas[i]
+            fecha = recordatorio[1]
+            hora_completa = recordatorio[2]
+            print(contador, '-', recordatorio[0], '|', fecha[0], '/', fecha[1], '/', fecha[2], '|', hora_completa[0], ':', hora_completa[1], '|', recordatorio[3])
+            i = i + 1
+            contador = contador + 1
+
+        i = 0
+        while i < len(medias):
+            recordatorio = medias[i]
+            fecha = recordatorio[1]
+            hora_completa = recordatorio[2]
+            print(contador, '-', recordatorio[0], '|', fecha[0], '/', fecha[1], '/', fecha[2], '|', hora_completa[0], ':', hora_completa[1], '|', recordatorio[3])
+            i = i + 1
+            contador = contador + 1
+
+        i = 0
+        while i < len(bajas):
+            recordatorio = bajas[i]
+            fecha = recordatorio[1]
+            hora_completa = recordatorio[2]
+            print(contador, '-', recordatorio[0], '|', fecha[0], '/', fecha[1], '/', fecha[2], '|', hora_completa[0], ':', hora_completa[1], '|', recordatorio[3])
+            i = i + 1
+            contador = contador + 1
+
+
 def modulo_recordatorio(recordatorios):
 
     opcion=0
 
-    while opcion!=6:
-        menu_recordatorio()
-        opcion=int(input('seleccionar una opcion:'))
-
-        if opcion ==1:
-            agregar_recordatorio(recordatorios)
-        elif opcion ==2:
-            ver_recordatorios(recordatorios)
-        elif opcion==3:
-            modificar_recordatorio(recordatorios)
-        elif opcion==4:
-            buscar_recordatorio(recordatorios)
-        elif opcion==5:
-            eliminar_recordatorio(recordatorios)
+    while opcion != 7:
+        print('\n ==MENU DE RECORDATORIOS==')
+        print('1. agregar recordatorio')
+        print('2. ver recordatorios')
+        print('3. modificar recordatorio')
+        print('4. buscar recordatorio')
+        print('5. eliminar recordatorio')
+        print('6. ver por prioridad')
+        print('7. volver al menu principal')
         
-        elif opcion ==6:
+        opcion=int(input('seleccionar una opcion: '))
+
+        if opcion == 1:
+            agregar_recordatorio(recordatorios)
+        elif opcion == 2:
+            ver_recordatorios(recordatorios)
+        elif opcion == 3:
+            modificar_recordatorio(recordatorios)
+        elif opcion == 4:
+            buscar_recordatorio(recordatorios)
+        elif opcion == 5:
+            eliminar_recordatorio(recordatorios)
+        elif opcion == 6:
+            recordatorios_por_prioridad(recordatorios)
+        elif opcion == 7:
             print('volviendo al menu principal...')
         else:
-            print('opcion invalida, intentelo nuevamnete')
+            print('opcion invalida, intentelo nuevamente')
 
