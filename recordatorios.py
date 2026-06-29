@@ -324,7 +324,6 @@ def modulo_recordatorio(recordatorios):
     Menú principal del sistema de recordatorios.
     Permite acceso a todas las funciones del módulo.
     """
-
     opcion=0
 
     while opcion != 7:
@@ -355,4 +354,5 @@ def modulo_recordatorio(recordatorios):
             print('volviendo al menu principal...')
         else:
             print('opcion invalida, intentelo nuevamente')
+
 
